@@ -19,7 +19,7 @@ on:
   pull_request:
   push:
     branches:
-      - master
+      - fix_EmailAlertReportFail_test
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   changes:
-    if: github.repository == 'apache/shenyu'
+    if: github.repository == 'wy471x/shenyu'
     runs-on: ubuntu-latest
     outputs:
       k8s_ingress: ${{ steps.filter.outputs['k8s-ingress'] }}
