@@ -65,7 +65,7 @@ jobs:
           - shenyu-integrated-test-k8s-ingress-websocket
           - shenyu-integrated-test-k8s-ingress-grpc
     runs-on: ubuntu-latest
-    if: github.repository == 'apache/shenyu' && needs.changes.outputs.k8s_ingress == 'true'
+    if: github.repository == 'wy471x/shenyu' && needs.changes.outputs.k8s_ingress == 'true'
     steps:
       - uses: actions/checkout@v3
         with:
