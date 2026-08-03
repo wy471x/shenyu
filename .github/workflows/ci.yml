@@ -19,7 +19,7 @@ on:
   pull_request:
   push:
     branches:
-      - master
+      - fix_IPV6AddressParseIncorrectly_test
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   changes:
-    if: github.repository == 'apache/shenyu'
+    if: github.repository == 'wy471x/shenyu'
     runs-on: ubuntu-latest
     outputs:
       code: ${{ steps.filter.outputs.code }}
@@ -82,7 +82,7 @@ jobs:
           - java: 21
             os: ubuntu-latest
     runs-on: ${{ matrix.os }}
-    if: github.repository == 'apache/shenyu' && needs.changes.outputs.code == 'true'
+    if: github.repository == 'wy471x/shenyu' && needs.changes.outputs.code == 'true'
     steps:
       - name: Support longpaths
         if: ${{ matrix.os == 'windows-latest'}}
@@ -155,7 +155,7 @@ jobs:
 
   requirement:
     name: build
-    if: (github.repository == 'apache/shenyu') && always()
+    if: (github.repository == 'wy471x/shenyu') && always()
     needs:
       - changes
       - build
