@@ -324,6 +324,9 @@ CREATE TABLE `operation_record_log`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'operation record log' ROW_FORMAT = Dynamic;
 
+CREATE INDEX `idx_operation_log_time` ON `operation_record_log` (`operation_time`) USING BTREE;
+CREATE INDEX `idx_operation_log_operator_time` ON `operation_record_log` (`operator`, `operation_time`) USING BTREE;
+
 -- ----------------------------
 -- Records of operation_record_log
 -- ----------------------------
